@@ -63,31 +63,37 @@ $(selector).autocomplete(options);
 
 
 ### Local only settings
+### 仅限本地设置
 | Setting | Default | Description |
 | :--- | :--- | :--- |
-| `lookupLimit` | `no limit` | Number of maximum results to display for local lookup |
-| `lookup` | n/a | Callback function or lookup array for the suggestions. It may be array of strings or `suggestion` object literals |
-| `suggestion` | n/a | Not a settings, but in the context of above row, a suggestion is an object literal with the following format: `{ value: 'string', data: any }` |
-| `lookupFilter` | n/a | `function (suggestion, query, queryLowerCase) {}` filter function for local lookups. By default it does partial string match (case insensitive) |
+| `lookupLimit` | `no limit` | Number of maximum results to display for local lookup 显示本地查找的最大结果数|
+| `lookup` | n/a | Callback function or lookup array for the suggestions. It may be array of strings or `suggestion` object literals 一个回调函数或者结果及数组。它可以是一个字符串数组或 `suggestion` 对象字面量|
+| `suggestion` | n/a | Not a settings, but in the context of above row, a suggestion is an object literal with the following format: `{ value: 'string', data: any }` 非设置选项，但是上一行的内容里，每个 suggestion 都是一个包含 `{value: 'string', data: any }` 的对象字面量|
+| `lookupFilter` | n/a | `function (suggestion, query, queryLowerCase) {}` filter function for local lookups. By default it does partial string match (case insensitive) 用于本地查找的过滤函数。默认情况下它会进行部分字符串匹配（不区分大小写）|
 
 ### Ajax only settings
+### 仅限 Ajax 设置
 | Setting | Default | Description |
 | :--- | :--- | :--- |
-| `serviceUrl` | n/a | Server side URL or callback function that returns serviceUrl string |
-| `type` | `GET` | Ajax request type to get suggestions |
-| `dataType` | `text` | type of data returned from server. Either `text`, `json`  or `jsonp`, which will cause the autocomplete to use jsonp. You may return a json object in your callback when using jsonp |
-| `paramName` | `query` | The name of the request parameter that contains the query |
-| `params` | optional | Additional parameters to pass with the request |
-| `deferRequestBy` | `0` | Number of miliseconds to defer Ajax request |
-| `ajaxSettings` | optional | Any additional [Ajax Settings](http://api.jquery.com/jquery.ajax/#jQuery-ajax-settings) that configure the jQuery Ajax request |
+| `serviceUrl` | n/a | Server side URL or callback function that returns serviceUrl string 服务器端URL或回调函数，返回 serviceUrl 字符串|
+| `type` | `GET` | Ajax request type to get suggestions Ajax 请求类型|
+| `dataType` | `text` | type of data returned from server. Either `text`, `json`  or `jsonp`, which will cause the autocomplete to use jsonp. You may return a json object in your callback when using jsonp 从服务器返回的数据类型。无论使用 `text`, `json`, 还是 `jsonp` 中的哪一个都将自动转成 jsonp。当使用 jsonp 的时候你可以在你的回调函数中返回一个 json 对象|
+| `paramName` | `query` | The name of the request parameter that contains the query 自定义查询名字|
+| `params` | optional | Additional parameters to pass with the request 请求传递的其他参数|
+| `deferRequestBy` | `0` | Number of miliseconds to defer Ajax request 推迟Ajax请求的毫秒数|
+| `ajaxSettings` | optional | Any additional [Ajax Settings](http://api.jquery.com/jquery.ajax/#jQuery-ajax-settings) that configure the jQuery Ajax request 任意 jQuery Ajax 请求配置|
 
 ## Default Options
+## 默认选项
 
 Default options for all instances can be accessed via `$.Autocomplete.defaults`.
+所有实例的默认选项都可以通过 `$ .Autocomplete.defaults` 访问。
 
 ## Instance Methods
+## 实例方法
 
 Autocomplete instance has following methods:
+自动完成实例有以下方法：
 
 * `setOptions(options)`: you may update any option at any time. Options are listed above.
 * `clear`: clears suggestion cache and current suggestions.
