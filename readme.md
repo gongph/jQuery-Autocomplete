@@ -58,7 +58,7 @@ $(selector).autocomplete(options);
 | `onSearchComplete` | `function (query, suggestions) {}` called after Ajax response is processed. `this` is bound to input element. `suggestions` is an array containing the results 在处理完Ajax响应后调用。`this` 绑定的是输入框元素，`suggestions` 是一个查询结果数组|
 | `transformResult` | `function(response, originalQuery) {}` called after the result of the query is ready. Converts the result into response.suggestions format 查询结果准备就绪后调用。将结果转换为 response.suggestions 格式|
 | `onSelect` | `function (suggestion) {}` Callback function invoked when user selects suggestion from the list. `this` inside callback refers to input HtmlElement. 当用户选择一个查询结果条目时调用。回调中的 `this` 引用的是 输入框元素对象|
-| `onSearchError` | `function (query, jqXHR, textStatus, errorThrown) {}` called if Ajax request fails. `this` is bound to input element 当异步查询错误是调用。 `this` 绑定的是 输入框元素|
+| `onSearchError` | `function (query, jqXHR, textStatus, errorThrown) {}` called if Ajax request fails. `this` is bound to input element 当异步查询错误时调用。 `this` 绑定的是 输入框元素|
 | `onHide` | `function (container) {}` called before container will be hidden 当查询结果容器隐藏时调用|
 
 
