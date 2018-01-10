@@ -93,18 +93,21 @@ Default options for all instances can be accessed via `$.Autocomplete.defaults`.
 ## 实例方法
 
 Autocomplete instance has following methods:
-自动完成实例有以下方法：
+自动完成实例有如下方法：
 
-* `setOptions(options)`: you may update any option at any time. Options are listed above.
-* `clear`: clears suggestion cache and current suggestions.
-* `clearCache`: clears suggestion cache.
-* `disable`: deactivate autocomplete.
-* `enable`: activates autocomplete if it was deactivated before.
-* `hide`: hides suggestions.
-* `dispose`: destroys autocomplete instance. All events are detached and suggestion containers removed.
+* `setOptions(options)`: you may update any option at any time. Options are listed above. 您可以随时更新任何选项。参考上面的选项。
+* `clear`: clears suggestion cache and current suggestions. 清除缓存结果和当前的查询结果。
+* `clearCache`: clears suggestion cache. 清除缓存。
+* `disable`: deactivate autocomplete. 停用自动完成
+* `enable`: activates autocomplete if it was deactivated before. 如果当前自动完成为停用状态则激活。
+* `hide`: hides suggestions. 隐藏查询结果
+* `dispose`: destroys autocomplete instance. All events are detached and suggestion containers removed. 销毁自动完成实例。所有的事件被解除，查询结果容器被删除。
 
 There are two ways that you can invoke Autocomplete method. One is calling autocomplete on jQuery object and passing method name as string literal.
+有两种方法可以调用自动完成方法。一个是在jQuery对象上调用自动完成，并将方法名称作为字符串文字传递。
+
 If method has arguments, arguments are passed as consecutive parameters:
+如果方法有参数，则参数作为连续参数传递：
 
 ```javascript
 $('#autocomplete').autocomplete('disable');
@@ -112,13 +115,14 @@ $('#autocomplete').autocomplete('setOptions', options);
 ```
 
 Or you can get Autocomplete instance by calling autcomplete on jQuery object without any parameters and then invoke desired method.
+或者，您可以通过调用 jQuery 对象上的 autcomplete 方法而不用任何参数来获得 Autocomplete 实例，然后调用所需的方法。
 
 ```javascript
 $('#autocomplete').autocomplete().disable();
 $('#autocomplete').autocomplete().setOptions(options);
 ```
 
-## Usage
+## Usage(用法)
 
 Html:
 
@@ -126,7 +130,7 @@ Html:
 <input type="text" name="country" id="autocomplete"/>
 ```
 
-Ajax lookup:
+Ajax lookup(Ajax查询):
 
 ```javascript
 $('#autocomplete').autocomplete({
@@ -138,6 +142,7 @@ $('#autocomplete').autocomplete({
 ```
 
 Local lookup (no Ajax):
+本地查询（非Ajax）
 
 ```javascript
 var countries = [
@@ -155,13 +160,16 @@ $('#autocomplete').autocomplete({
 ```
 
 Custom lookup function:
+自定义查询方法：
 ```javascript
 
 $('#autocomplete').autocomplete({
     lookup: function (query, done) {
         // Do Ajax call or lookup locally, when done,
         // call the callback and pass your results:
-        var result = {
+        // Ajax 或本地查询，完成后，
+        // 调用回调函数并传递你的查询结果：
+        var result = {
             suggestions: [
                 { "value": "United Arab Emirates", "data": "AE" },
                 { "value": "United Kingdom",       "data": "UK" },
@@ -177,9 +185,10 @@ $('#autocomplete').autocomplete({
 });
 ```
 
-## Styling
+## Styling（样式）
 
 Generated HTML markup for suggestions is displayed below. You may style it any way you'd like.
+查询结果生成的 HTML 标记元素如下所示，你可以按照自己的喜好自定义样式。
 
 ```html
 <div class="autocomplete-suggestions">
@@ -190,7 +199,7 @@ Generated HTML markup for suggestions is displayed below. You may style it any w
 </div>
 ```
 
-Style sample:
+Style sample（示例样式）:
 
 ```css
 .autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
@@ -203,6 +212,7 @@ Style sample:
 
 
 ## Response Format
+## 响应数据格式
 
 Response from the server must be JSON formatted following JavaScript object:
 
