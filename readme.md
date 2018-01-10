@@ -215,11 +215,13 @@ Style sample（示例样式）:
 ## 响应数据格式
 
 Response from the server must be JSON formatted following JavaScript object:
+来自服务器的响应数据必须是符合下面 JavaScript 对象的 JSON 格式：
 
 ```javascript
 {
     // Query is not required as of version 1.2.5
-    "query": "Unit",
+    // Query 从 1.2.5 版本以后不是必须的
+    "query": "Unit",
     "suggestions": [
         { "value": "United Arab Emirates", "data": "AE" },
         { "value": "United Kingdom",       "data": "UK" },
@@ -231,6 +233,7 @@ Response from the server must be JSON formatted following JavaScript object:
 Data can be any value or object. Data object is passed to formatResults function
 and onSelect callback. Alternatively, if there is no data you can
 supply just a string array for suggestions:
+Data 可以是任意类型的值或对象。数据对象被传递给 formatResults 函数和 onSelect 回调。另外，如果没有 data 属性，你只需给 suggestions 传一个字符串数组即可，就像下面这样：
 
 ```json
 {
@@ -240,9 +243,11 @@ supply just a string array for suggestions:
 ```
 
 ## Non standard query/results
+## 非标准查询/结果
 
 If your Ajax service expects the query in a different format, and returns data in a different format than the standard response,
 you can supply the "paramName" and "transformResult" options:
+如果您的 Ajax 服务需要使用其他格式的查询，并以不同于标准响应的格式返回数据，你可以提供 “paramName” 和 “transformResult” 选项：
 
 ```javascript
 $('#autocomplete').autocomplete({
@@ -258,8 +263,10 @@ $('#autocomplete').autocomplete({
 ```
 
 ## Grouping Results
+## 分组结果
 
 Specify `groupBy` option of you data property if you wish results to be displayed in groups. For example, set `groupBy: 'category'` if your suggestion data format is:
+如果你希望把查询结果按组显示，请在 `groupBy` 中指定你的 data 属性。例如，如果你的查询结果的数据格式是下面这样子，设置 `groupBy: 'category'` 将会按 category 分组显示：
 
 ```javascript
 [
@@ -269,6 +276,7 @@ Specify `groupBy` option of you data property if you wish results to be displaye
 ```
 
 Results will be formatted into two groups **NHL** and **NBA**.
+结果将被格式化为两组 **NHL** 和 **NBA** 。
 
 ## Known Issues
 
