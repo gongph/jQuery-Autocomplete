@@ -38,7 +38,7 @@ $(selector).autocomplete(options);
 | `groupBy` | optional | property name of the suggestion `data` object, by which results should be grouped 指定查询结果 `data` 对象中的哪个属性可以作为分组属性|
 | `maxHeight` | `300` | Maximum height of the suggestions container in pixels 设置查询结果容器的最大高度（以像素为单位）|
 | `width` | `auto` | Suggestions container width in pixels, e.g.: 300, `flex` for max suggestion size and `auto` takes input field width 设置查询结果容器的宽度（以像素为单位），例如：300，`flex` 取最宽的条目宽度，`auto` 采用文本框的宽度|
-| `zIndex` | `9999` | 'z-index' for suggestions container 设置查询结果容器的 z 轴索引|
+| `zIndex` | `9999` | 'z-index' for suggestions container 设置查询结果容器的 z 轴索引| 
 | `appendTo` | optional | Container where suggestions will be appended. Default value `document.body`. Can be jQuery object, selector or HTML element. Make sure to set `position: absolute` or `position: relative` for that element 查询结果容器将被添加到哪里。默认是 `document.body`。可以是 jQuery 对象，选择器或这 HTML 元素。确保为该元素设置 `position: absolute` 或者 `position: relative`|
 | `forceFixPosition` | `false` | Suggestions are automatically positioned when their container is appended to body (look at `appendTo` option), in other cases suggestions are rendered but no positioning is applied. Set this option to force auto positioning in other cases 当他们的容器添加到 body 上时，查询结果容器将会自动定位（查看 `appendTo` 选项），除此之外，容器渲染后则不会自动定位。设置此选项可以解决这个问题|
 | `orientation` | `bottom` | Vertical orientation of the displayed suggestions, available values are `auto`, `top`, `bottom`.  If set to `auto`, the suggestions will be orientated it the way that place them closer to middle of the view port 设置查询结果容器在垂直方向上的位置，可选值有 `auto`, `top`, `bottom`。如果设置成 `auto`，容器将被定位到靠近视口中间的位置|
@@ -279,14 +279,17 @@ Results will be formatted into two groups **NHL** and **NBA**.
 结果将被格式化为两组 **NHL** 和 **NBA** 。
 
 ## Known Issues
+## 已知问题
 
 If you use it with jQuery UI library it also has plugin named `autocomplete`. In this case you can use plugin alias `devbridgeAutocomplete`:
+如果你使用jQuery UI库，它也有一个名为`autocomplete`的插件。在这种情况下，你可以使用插件别名 `devbridgeAutocomplete` ：
 
 ```javascript
 $('.autocomplete').devbridgeAutocomplete({ ... });
 ```
 
 It seems that for mobile Safari click events are only triggered if the CSS of the object being tapped has the cursor set to pointer:
+似乎只有当被点击的对象的 CSS 将光标设置为指针时，才会触发移动 Safari 单击事件：
 
     .autocomplete-suggestion { 
         cursor: pointer;
